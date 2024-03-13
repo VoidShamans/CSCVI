@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'web_project/styles_login.css' %}">
+</head>
+<body>
+    <h3 style="color: rgb(255, 255, 255); font-weight: bold;">Please Login To View The Discussion Page</h3>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Username"><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Password"><br>
+        <button type="submit">Login</button>
+    </form>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+    </nav>
+</body>
+</html>

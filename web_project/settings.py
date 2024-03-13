@@ -70,6 +70,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'web_project.wsgi.application'
 
+#custom login info
+LOGIN_URL = 'login'
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

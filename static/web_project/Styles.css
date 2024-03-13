@@ -6,7 +6,7 @@ body {
     background-color: black;
     text-align: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(0, 0, 0); 
+    color: rgb(255, 255, 255); 
 }
  .wrapper{
     width: 90%;
@@ -40,7 +40,7 @@ nav a{
     font-family: "Pacifico";
     letter-spacing: 4px;
     font-size: 20px;
-    padding: 36;
+    padding: 36px 10px;
     color: darkorchid;
 }
 nav a:hover{
@@ -94,4 +94,12 @@ nav a:hover{
     font-size: larger;
     text-align: justify;
     color: rgb(146, 146, 146);
+}
+#myVideo1{
+    width: 500px;
+    float: left;
+    margin-top: 10px;
+}
+#video-dis{
+text-align-last: left;
 }
