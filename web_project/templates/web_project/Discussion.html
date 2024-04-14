@@ -4,23 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'web_project/Styles.css' %}">
+    <link rel="stylesheet" href="{% static 'web_project/Message.css' %}">
     <title>The Void</title>
 </head>
 <body>
 
-<div>
-    <header>
-        <div class="wrapper">
-            <div class="logo">
-                <a href="https://www.youtube.com/@TheVoidShaman" target="_blank">VoidShaman</a>
-            </div>
+<header>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'video' %}">Videos</a>
+        <a href="{% url 'discussion' %}">Discussion</a>
+    </nav>
+</header>
 
-            <nav>
-                <a href="{% url 'home' %}">Home</a>
-                <a href="{% url 'video' %}">Videos</a>
-                <a href="{% url 'discussion' %}">Discussion</a>
-            </nav>
-        </div>
-    </header>
+<div class="container">
+    <h1>Welcome to the Discussion Forum</h1>
+
+    <!-- Message Form for Posting Messages -->
+    <form method="post" action="{% url 'discussion' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Post Message</button>
+    </form>
+
+    <hr>
+
+    <!-- Display Existing Messages -->
+    <h2>Previous Messages</h2>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>
+                    {{ message.message }} 
+                    (Posted by {{ message.user.username }} on {{ message.created_at }})
+                    {% if message.user == request.user %}
+                        <form method="post" action="{% url 'edit_message' message.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Edit</button>
+                        </form>
+                        <form method="post" action="{% url 'delete_message' message.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No messages yet.</p>
+    {% endif %}
 </div>
+
+</body>
+</html>
