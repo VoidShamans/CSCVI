@@ -59,7 +59,7 @@ def discussion(request):
         form = UserMessageForm()
 
     # Retrieve and display messages for the logged-in user
-    messages = UserMessage.objects.filter(user=request.user).order_by('-created_at')
+    messages = UserMessage.objects.all().order_by('-created_at')
     return render(request, 'web_project/Discussion.html', {'form': form, 'messages': messages})
 
 def edit_message(request, message_id):

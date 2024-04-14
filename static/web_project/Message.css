@@ -44,7 +44,7 @@ nav a:hover{
 
 /* Form styles */
 form {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 button {
@@ -66,9 +66,14 @@ ul {
     padding: 0;
 }
 
+li {
+    margin-bottom: 20px;
+}
+
 li form {
     display: inline-block; 
     margin-right: 1px; 
+
 }
 
 /* Edit and Delete button styles */
