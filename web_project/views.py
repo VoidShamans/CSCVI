@@ -30,13 +30,11 @@ def login_view(request):
         if user is not None:
             # If valid, log the user in and redirect to the home page
             login(request, user)
-            return redirect(reverse('home'))  # Assuming 'home' is the name of the URL pattern for your home page
+            return redirect(reverse('home'))  
         else:
-            # If invalid, render the login page again with an error message
             error_message = "Invalid username or password. Please try again."
             return render(request, 'login.html', {'error_message': error_message})
     else:
-        # Render the login form
         return render(request, 'login.html')
     
 
@@ -54,7 +52,7 @@ def discussion(request):
             message = form.save(commit=False)
             message.user = request.user
             message.save()
-            return redirect('discussion')  # Redirect back to the discussion page after posting
+            return redirect('discussion')  
     else:
         form = UserMessageForm()
 
@@ -69,7 +67,7 @@ def edit_message(request, message_id):
         form = UserMessageForm(request.POST, instance=message)
         if form.is_valid():
             form.save()
-            return redirect('discussion')  # Redirect after successful edit
+            return redirect('discussion')  
     else:
         form = UserMessageForm(instance=message)
 

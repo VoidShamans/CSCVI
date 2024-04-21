@@ -1,42 +1,38 @@
 body {
     background-color: rgba(174, 134, 248, 0.986);
-    background-image:url('/static/web_project/smile_banner.png');
-    background-size: cover;
-    background-position: center center;
     height: 100vh;
-    width: 100%;
-    position: bottom; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
-.login-container {
+.signup {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    
+    width: 300px; /* Adjust as needed */
+    text-align: center; /* Center-align content inside the container */
 }
-
 
 input[type="text"],
 input[type="password"] {
-    width: 15%;
+    width: 100%;
     padding: 10px;
     margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     text-align: center;
 }
 
-/* Submit button */
+
 button[type="submit"] {
-    width: 25%;
+    width: 100%;
     background-color: rgb(0, 0, 0);
     color: white;
-    padding: 10px 20px;
+    padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-/* Hover effect for submit button */
-button[type="submit"]:hover {
-    background-color: rgb(46, 0, 105);
 }
